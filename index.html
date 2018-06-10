@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman Game</title>
+</head>
+<body>
+<!-- . Choose a theme for your game! In the demo, we picked an 80s theme: 80s questions, 80s sound and an 80s aesthetic. You can choose any subject for your theme, though, so be creative!
+
+3. Use key events to listen for the letters that your players will type.
+
+4. Display the following on the page:
+
+5. Press any key to get started!
+
+6. Wins: (# of times user guessed the word correctly).
+
+   * If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
+
+   * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
+
+7. Number of Guesses Remaining: (# of guesses remaining for the user).
+
+8. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
+
+9. After the user wins/loses the game should automatically choose another word and make the user play it.
+ -->
+
+ <div id="container">
+ 	<img src="assets/images/paradise.gif" class="img img-thumbnail" alt="Word-Guess", width="500" height="500">
+ 	<div id="main-section">
+ 		<p>Press any key to get started!</p>
+
+ 	<p>Wins: </p>
+
+ 	<p>Number of Guesses Remaining: </p>
+
+ 	<p>Letters Already Guessed: <span id="userGuesses"></span></p>
+ 	</div>
+ 	
+ </div>
+
+ <script type="text/javascript">
+ 	
+ 	var words = ['html', 'javascript', 'python', 'sql', 'ruby'];
+ 	var computerWordIndex = words[Math.floor(Math.random() * words.length)];
+ 	var computerWord = words[computerWordIndex];
+ 	//user choice
+ 	var guessesSoFar = [];
+ 	var guessedword = [];
+
+ 	var wins = 0;
+ 	var losses  = 0;
+ 	var counter = 0;
+ 	var result = "- - - - - - - - -";
+
+	function chooseWord (ev) {
+	    var user_Guess = ev.key;
+        guessesSoFar.push(user_Guess);
+        //alert(guessesSoFar);
+		console.log(guessesSoFar);
+		document.querySelector('#userGuesses').innerText = guessesSoFar;
+
+	}
+
+	document.onkeyup = chooseWord;
+
+	
+ </script>
+
+</body>
+</html>
